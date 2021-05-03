@@ -1,0 +1,259 @@
+/*
+References in this code have mainly been extracted from CSS official docuemntation
+Available at:  https://developer.mozilla.org/en-US/docs/Web/CSS
+ */
+
+/* Imports fonts from goole.com */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+/* Aplies padding, box size and implements the font previously imported. */
+*,
+*::before,
+*::after {
+    box-sizing:border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Zen Dots';
+}
+
+/* Sets the body style */
+.message {
+    display: flex;
+    justify-content: center;
+    color: yellow;
+    width: 70%;
+    height:70%;
+    padding-top: 5%;
+    padding-left: 20%;
+    font-size: 20pt; 
+}
+
+body{
+    background-color: rgb(43, 43, 43);
+    overflow:hidden;   
+    background-image: url(../img/room.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    
+}
+    /* Styles the container holding the text and buttons for each choice of the player. */
+.game{
+    
+    display: flex;
+    color: rgb(250, 250, 57);
+    padding: 0cm;
+    margin: 0cm;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    background-color: rgb(43, 43, 43);
+    font-size: 20pt;
+    margin-top: 10%;
+    max-height: 80%;  
+}
+
+.play-btn {
+    text-align:center;
+    margin-top: 360px; 
+}
+.play-btn:hover{
+    color: tomato;
+}
+/* Displaies the ption buttons in the form of a grid.*/
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.btn{
+    border: 1px solid rgb(250, 250, 57);
+    background:none;
+    padding: 10px 20px;
+    color: rgb(250, 250, 57);
+    text-decoration: none; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14pt;
+}
+/* Sets the style when pointer hoovers over the buttons. */
+.btn:hover{
+    border: 3px solid;
+    border-style: solid;
+    border-collapse:separate;
+    font-size: 11pt;
+    color: tomato;
+}
+
+
+.banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color:rgb(250, 250, 57);
+   
+}
+
+.banner-text{
+    align-items: center;
+    color:rgb(250, 250, 57);
+    text-align:left;
+    margin-top: 80px;
+    text-justify: auto;
+    flex-wrap: wrap;
+    
+}
+
+/* Styles the Contact, About and Home pages */
+.contact{
+    margin-top: 20px;
+    font-size: 30pt;
+    color: tomato;
+}
+
+.email{
+    font-size: 20pt;
+    justify-content: flex-start;
+    margin-top: 0;
+}
+
+#email{
+    font-size: 15pt;
+    margin-top: 1%;
+    color: tomato;
+}
+
+.phone  {
+    margin-top: 5%;
+    font-size: 20pt;
+}
+
+.phone #phone{
+    margin-top: 1%;
+    font-size: 15pt;
+    color: tomato;
+}
+
+.socialmedia{
+    margin-top: 5%;
+    font-size: 20pt;
+
+}
+#socialmedia{
+    display: flex;
+    text-align: center
+}
+ 
+nav {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color:rgb(250, 250, 57);
+}
+
+.logo{
+    color:rgb(43, 43, 43);
+    letter-spacing: 5px;
+    font-size: 25px;
+}
+
+/* Styles the navigation bar and the links inside. */
+.navlinks  {
+    display: flex;
+    background-color:inherit;
+    justify-content:space-evenly;
+    text-decoration: none;
+    width: 30%; 
+    flex-wrap: wrap;
+}
+
+.navlinks a{
+    text-decoration: none;
+    color: rgb(43, 43, 43);
+}
+
+.navlinks li{
+    list-style: none;
+}
+
+.menu{
+    display: none;
+    cursor: pointer;     
+}
+
+.menu div{
+   width: 25px;
+   height: 3px;
+   background-color:rgb(43, 43, 43);
+   margin: 5px;
+}
+
+@media screen and (max-width:1024px){
+    .navlinks{
+        width: 60%;
+    }
+    body {
+        overflow-y: hidden;
+    }
+}
+/* Sets the width at which the nav bar colapeses when the screen size is changed. */
+@media screen and (max-width:500px){
+    body{
+        overflow-x: hidden;
+        overflow-y:hidden;
+        }
+    .navlinks{
+        position:absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgb(250, 250, 57);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition:transform 1s ease-in-out;
+        
+        }
+    .navlinks li{
+        opacity: 0;
+    }
+    .menu{
+        display: block;
+    }
+}
+
+.navactive{
+    transform: translateX(0%);
+}
+/* Changes the opacity of the links when the side menu is toggled so they display with delay. */
+@keyframes navLinkFade {
+    from{
+        opacity:0;  
+        transform: translateX(50px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+   transform: rotate(-45deg) translate(-5px,6px);     
+}
+
+.toogle #line2{
+    display: none;
+}
+
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
